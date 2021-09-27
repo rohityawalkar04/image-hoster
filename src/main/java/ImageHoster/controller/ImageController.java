@@ -17,7 +17,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.Date;
+import java.util.Objects;
+import java.util.Base64;
+import java.util.StringTokenizer;
+import java.util.ArrayList;
+
 
 @Controller
 public class ImageController {
@@ -51,6 +57,7 @@ public class ImageController {
         Image image = imageService.getImageById(id);
         model.addAttribute("image", image);
         model.addAttribute("tags", image.getTags());
+        model.addAttribute("comments", image.getComments());
         return "images/image";
     }
 
